@@ -14,6 +14,10 @@ public class NoiseEmitter : MonoBehaviour
     private void Awake()
     {
         movement = GetComponent<PlayerMovement>();
+
+#if !UNITY_EDITOR
+        logEmissions = false;
+#endif
     }
 
     private void OnEnable()

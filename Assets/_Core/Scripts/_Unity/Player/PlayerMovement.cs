@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveInput;
     private bool isSlow;
 
+    private float verticalVelocity;
+
     private void Awake()
     {
         cc = GetComponent<CharacterController>();
@@ -32,19 +34,33 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (moveInput.sqrMagnitude < 0.01f)
+        if (cc.isGrounded && verticalVelocity < 0.0f)
         {
-            return;
+            verticalVelocity = -2.0f;
+        }
+        else
+        {
+            verticalVelocity += Physics.gravity.y * Time.deltaTime;
         }
 
-        float speed = isSlow ? config.slowSpeed : config.regularSpeed;
-        Vector3 direction = new Vector3(moveInput.x, 0.0f, moveInput.y).normalized;
+        if (moveInput.sqrMagnitude > 0.01f)
+        {
+            float speed = isSlow ? config.slowSpeed : config.regularSpeed;
+            Vector3 direction = new Vector3(moveInput.x, 0.0f, moveInput.y).normalized;
 
-        cc.Move(speed * Time.deltaTime * direction);
-        transform.forward = Vector3.Lerp(transform.forward, direction, 0.2f);
+            transform.forward = Vector3.Lerp(transform.forward, direction, 0.2f);
 
-        float intensity = isSlow ? config.noiseWalkSlow : config.noiseWalkRegular;
-        OnMoved?.Invoke(intensity, transform.position);
+            float intensity = isSlow ? config.noiseWalkSlow : config.noiseWalkRegular;
+            OnMoved?.Invoke(intensity, transform.position);
+
+            Vector3 motion = direction * speed;
+            motion.y = verticalVelocity;
+            cc.Move(motion * Time.deltaTime);
+        }
+        else
+        {
+            cc.Move(new Vector3(0.0f, verticalVelocity, 0.0f) * Time.deltaTime);
+        }
     }
 
     private void InputHandler_OnSlowWalkChanged(bool isSlow)
