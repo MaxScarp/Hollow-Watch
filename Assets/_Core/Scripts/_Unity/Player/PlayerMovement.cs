@@ -51,11 +51,12 @@ public class PlayerMovement : MonoBehaviour
             transform.forward = Vector3.Lerp(transform.forward, direction, 0.2f);
 
             float intensity = isSlow ? config.noiseWalkSlow : config.noiseWalkRegular;
-            OnMoved?.Invoke(intensity, transform.position);
 
             Vector3 motion = direction * speed;
             motion.y = verticalVelocity;
             cc.Move(motion * Time.deltaTime);
+
+            OnMoved?.Invoke(intensity, transform.position);
         }
         else
         {
