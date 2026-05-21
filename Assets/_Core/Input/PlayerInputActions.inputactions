@@ -21,11 +21,20 @@
                     "id": "bb2e6d89-f970-4880-8939-2ffd7b93b85f",
                     "expectedControlType": "",
                     "processors": "",
+                    "interactions": "Hold",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "b110766e-5433-4abd-abee-2b90ff6c4a0d",
+                    "expectedControlType": "",
+                    "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Throw",
+                    "name": "ThrowDecoy",
                     "type": "Button",
                     "id": "a98c437d-81ad-4831-ad6d-3a2b7f35ca52",
                     "expectedControlType": "",
@@ -91,10 +100,76 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "2D Vector",
+                    "id": "3403d73a-35a9-4a52-a7c1-11e64a124003",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "11327487-8e44-46d3-8046-689771bfa18c",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "650ac7fd-1d28-4fd6-94a4-5406ce93daa1",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "9d71f6b9-8ce0-4426-9447-1cd10c024fd7",
+                    "path": "<Gamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "f0700fbd-4de9-475a-9e81-4a6122e9448b",
+                    "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "e9473ee3-3765-484f-9f4c-ecfe82cd54c5",
                     "path": "<Keyboard>/leftShift",
-                    "interactions": "Hold",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SlowWalk",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7e961c84-32a1-4cfb-9b62-7ebdab47e60b",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "SlowWalk",
@@ -108,7 +183,40 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Throw",
+                    "action": "ThrowDecoy",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bdfce7b4-c631-4a43-b660-d0825096cd6b",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ThrowDecoy",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0ad6759d-0a62-4ddc-b3b0-bd38bae44fc7",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "246bac17-b95d-48dd-8981-a732811a20e9",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -107,11 +107,20 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""id"": ""bb2e6d89-f970-4880-8939-2ffd7b93b85f"",
                     ""expectedControlType"": """",
                     ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""b110766e-5433-4abd-abee-2b90ff6c4a0d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Throw"",
+                    ""name"": ""ThrowDecoy"",
                     ""type"": ""Button"",
                     ""id"": ""a98c437d-81ad-4831-ad6d-3a2b7f35ca52"",
                     ""expectedControlType"": """",
@@ -177,10 +186,76 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""3403d73a-35a9-4a52-a7c1-11e64a124003"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""11327487-8e44-46d3-8046-689771bfa18c"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""650ac7fd-1d28-4fd6-94a4-5406ce93daa1"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""9d71f6b9-8ce0-4426-9447-1cd10c024fd7"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""f0700fbd-4de9-475a-9e81-4a6122e9448b"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""e9473ee3-3765-484f-9f4c-ecfe82cd54c5"",
                     ""path"": ""<Keyboard>/leftShift"",
-                    ""interactions"": ""Hold"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SlowWalk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7e961c84-32a1-4cfb-9b62-7ebdab47e60b"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SlowWalk"",
@@ -194,7 +269,40 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Throw"",
+                    ""action"": ""ThrowDecoy"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bdfce7b4-c631-4a43-b660-d0825096cd6b"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ThrowDecoy"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0ad6759d-0a62-4ddc-b3b0-bd38bae44fc7"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""246bac17-b95d-48dd-8981-a732811a20e9"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -207,7 +315,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_SlowWalk = m_Player.FindAction("SlowWalk", throwIfNotFound: true);
-        m_Player_Throw = m_Player.FindAction("Throw", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_ThrowDecoy = m_Player.FindAction("ThrowDecoy", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -290,7 +399,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_SlowWalk;
-    private readonly InputAction m_Player_Throw;
+    private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_ThrowDecoy;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -311,9 +421,13 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @SlowWalk => m_Wrapper.m_Player_SlowWalk;
         /// <summary>
-        /// Provides access to the underlying input action "Player/Throw".
+        /// Provides access to the underlying input action "Player/Interact".
         /// </summary>
-        public InputAction @Throw => m_Wrapper.m_Player_Throw;
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/ThrowDecoy".
+        /// </summary>
+        public InputAction @ThrowDecoy => m_Wrapper.m_Player_ThrowDecoy;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -346,9 +460,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @SlowWalk.started += instance.OnSlowWalk;
             @SlowWalk.performed += instance.OnSlowWalk;
             @SlowWalk.canceled += instance.OnSlowWalk;
-            @Throw.started += instance.OnThrow;
-            @Throw.performed += instance.OnThrow;
-            @Throw.canceled += instance.OnThrow;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
+            @ThrowDecoy.started += instance.OnThrowDecoy;
+            @ThrowDecoy.performed += instance.OnThrowDecoy;
+            @ThrowDecoy.canceled += instance.OnThrowDecoy;
         }
 
         /// <summary>
@@ -366,9 +483,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @SlowWalk.started -= instance.OnSlowWalk;
             @SlowWalk.performed -= instance.OnSlowWalk;
             @SlowWalk.canceled -= instance.OnSlowWalk;
-            @Throw.started -= instance.OnThrow;
-            @Throw.performed -= instance.OnThrow;
-            @Throw.canceled -= instance.OnThrow;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
+            @ThrowDecoy.started -= instance.OnThrowDecoy;
+            @ThrowDecoy.performed -= instance.OnThrowDecoy;
+            @ThrowDecoy.canceled -= instance.OnThrowDecoy;
         }
 
         /// <summary>
@@ -424,11 +544,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSlowWalk(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Throw" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnThrow(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ThrowDecoy" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnThrowDecoy(InputAction.CallbackContext context);
     }
 }

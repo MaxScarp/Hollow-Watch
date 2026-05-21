@@ -2,6 +2,7 @@
     "name": "HollowWatch.Runtime",
     "rootNamespace": "",
     "references": [
+        "GUID:a7715014cc33d7c499da1dbc6bf33ad2",
         "GUID:75469ad4d38634e559750d17036d5f7c"
     ],
     "includePlatforms": [],
