@@ -1,18 +1,14 @@
+using System.Numerics;
+
 public readonly struct SoundStimulusEvent
 {
-    public readonly float PositionX;
-    public readonly float PositionY;
-    public readonly float PositionZ;
-
+    public readonly Vector3 Position;
     public readonly float Intensity;
     public readonly SoundSourceType SourceType;
 
-    public SoundStimulusEvent(float positionX, float positionY, float positionZ, float intensity, SoundSourceType sourceType)
+    public SoundStimulusEvent(Vector3 position, float intensity, SoundSourceType sourceType)
     {
-        PositionX = positionX;
-        PositionY = positionY;
-        PositionZ = positionZ;
-
+        Position = position;
         Intensity = intensity;
         SourceType = sourceType;
     }

@@ -43,7 +43,7 @@ public class NoiseEmitter : MonoBehaviour
 
     private void Emit(float intensity, Vector3 position, SoundSourceType source)
     {
-        GameEventBus.Publish(new SoundStimulusEvent(position.x, position.y, position.z, intensity, source));
+        GameEventBus.Publish(new SoundStimulusEvent(Vector3Utils.ToCore(position), intensity, source));
 
 #if UNITY_EDITOR
         if (logEmissions)
