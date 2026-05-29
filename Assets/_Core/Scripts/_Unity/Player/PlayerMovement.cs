@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController cc;
     private Vector2 moveInput;
     private bool isSlow;
+    private bool isRunning;
 
     private float verticalVelocity;
 
@@ -24,12 +25,14 @@ public class PlayerMovement : MonoBehaviour
     {
         inputHandler.OnMoveInput += InputHandler_OnMoveInput;
         inputHandler.OnSlowWalkChanged += InputHandler_OnSlowWalkChanged;
+        inputHandler.OnRunChanged += InputHandler_OnRunChanged;
     }
 
     private void OnDisable()
     {
         inputHandler.OnMoveInput -= InputHandler_OnMoveInput;
         inputHandler.OnSlowWalkChanged -= InputHandler_OnSlowWalkChanged;
+        inputHandler.OnRunChanged -= InputHandler_OnRunChanged;
     }
 
     private void Update()
@@ -45,12 +48,17 @@ public class PlayerMovement : MonoBehaviour
 
         if (moveInput.sqrMagnitude > 0.01f)
         {
-            float speed = isSlow ? config.slowSpeed : config.regularSpeed;
+            float speed = isRunning ? config.runSpeed :
+                          isSlow ? config.slowSpeed :
+                          config.regularSpeed;
+
             Vector3 direction = new Vector3(moveInput.x, 0.0f, moveInput.y).normalized;
 
             transform.forward = Vector3.Lerp(transform.forward, direction, 0.2f);
 
-            float intensity = isSlow ? config.noiseWalkSlow : config.noiseWalkRegular;
+            float intensity = isRunning ? config.noiseRun :
+                              isSlow ? config.noiseWalkSlow :
+                              config.noiseWalkRegular;
 
             Vector3 motion = direction * speed;
             motion.y = verticalVelocity;
@@ -62,6 +70,11 @@ public class PlayerMovement : MonoBehaviour
         {
             cc.Move(new Vector3(0.0f, verticalVelocity, 0.0f) * Time.deltaTime);
         }
+    }
+
+    private void InputHandler_OnRunChanged(bool isRunning)
+    {
+        this.isRunning = isRunning;
     }
 
     private void InputHandler_OnSlowWalkChanged(bool isSlow)

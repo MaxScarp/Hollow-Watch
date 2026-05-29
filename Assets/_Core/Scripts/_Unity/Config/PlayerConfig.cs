@@ -6,6 +6,7 @@ public class PlayerConfig : ScriptableObject
     [Header("Movement")]
     public float regularSpeed = 4.0f;
     public float slowSpeed = 2.0f;
+    public float runSpeed = 6.0f;
 
     [Header("Noise Intensity")]
     public float noiseWalkRegular = 30.0f;
